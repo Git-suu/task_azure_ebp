@@ -1,0 +1,56 @@
+# Terraform State Files
+terraform.tfstate*
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Terraform Backend Configuration
+.terraformrc
+terraform.rc
+
+# Terraform Cloud
+cloud.tfvars
+
+# Terraform Directory
+.terraform/
+.terraform.d/
+
+# Local .terraform directories
+**/.terraform/*
+
+# Sensitive Variable Files
+*.tfvars
+*.tfvars.json
+!example.tfvars
+
+# Crash Log Files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files, which are likely to contain sensitive data
+*.tfvars
+*.tfvars.json
+
+# Ignore override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.vscode/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# OS Files
+Thumbs.db
+.DS_Store
+*.log
