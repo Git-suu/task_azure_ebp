@@ -119,17 +119,17 @@ This Terraform project creates a complete three-tier architecture on Azure with 
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     Azure VNet (10.0.0.0/16)               │
+│                     Azure VNet (10.0.0.0/16)                │
 ├─────────────────────────────────────────────────────────────┤
-│                                                               │
+│                                                             │
 │  ┌─────────────────────────────────────────────────────┐   │
 │  │ PUBLIC SUBNET (10.0.1.0/24)                         │   │
 │  │  └─ Frontend VM (Nginx)                             │   │
 │  │     └─ Public IP: Frontend accessible via HTTP      │   │
-│  │     └─ Security: HTTP (80), SSH (22)               │   │
+│  │     └─ Security: HTTP (80), SSH (22)                │   │
 │  └─────────────────────────────────────────────────────┘   │
-│                            │                                 │
-│                            ▼                                 │
+│                            │                               │
+│                            ▼                               │
 │  ┌─────────────────────────────────────────────────────┐   │
 │  │ PRIVATE SUBNET (10.0.2.0/24)                        │   │
 │  │  └─ Backend VM (FastAPI/Python)                     │   │
@@ -137,19 +137,19 @@ This Terraform project creates a complete three-tier architecture on Azure with 
 │  │     └─ Port 8000: FastAPI service                   │   │
 │  │     └─ Security: Port 8000 from Public Subnet only  │   │
 │  └─────────────────────────────────────────────────────┘   │
-│                                                               │
+│                                                            │
 │  ┌─────────────────────────────────────────────────────┐   │
 │  │ DATA SUBNET (10.0.3.0/24)                           │   │
 │  │  └─ Reserved for databases/data services            │   │
 │  └─────────────────────────────────────────────────────┘   │
-│                                                               │
+│                                                            │
 │  ┌─────────────────────────────────────────────────────┐   │
 │  │ GATEWAY SUBNET (10.0.4.0/24)                        │   │
 │  │  └─ VPN Gateway                                     │   │
-│  │     └─ RouteBased VPN Gateway (VpnGw1AZ)           │   │
-│  │     └─ Static Public IP for VPN connections        │   │
+│  │     └─ RouteBased VPN Gateway (VpnGw1AZ)            │   │
+│  │     └─ Static Public IP for VPN connections         │   │
 │  └─────────────────────────────────────────────────────┘   │
-│                                                               │
+│                                                            │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -229,9 +229,6 @@ terraform-project/
 ├── security.tf             # Network Security Groups and rules
 ├── vpn.tf                  # VPN Gateway configuration
 ├── outputs.tf              # Output values for access info
-├── terraform.tfvars        # Variable values (auto-loaded)
-├── terraform.tfstate       # State file (contains deployed resources)
-├── terraform.tfstate.backup # State file backup
 ├── cloud-init/             # VM initialization scripts
 │   ├── frontend.sh         # Frontend VM setup script
 │   └── backend.sh          # Backend VM setup script
@@ -346,8 +343,6 @@ The project maintains state files:
 - `terraform.tfstate.backup`: Backup of previous state
 
 ⚠️ **Important**: 
-- Never commit `.tfstate` files to public repositories
-- Use remote state backend (Azure Storage) for team environments
 - A `.gitignore` file should exclude state files
 
 ## 🗑️ Cleanup
