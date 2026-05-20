@@ -1,0 +1,12 @@
+# Example Terraform Variables File
+# Copy this file to terraform.tfvars and update with your values
+# DO NOT commit terraform.tfvars to GitHub - use .gitignore
+
+location = "Central India"
+
+resource_group_name = "rg-ebp-devtasks"
+
+# Change these credentials!
+admin_username = "localuser"
+
+admin_password = "Password1234!"  # ⚠️ CHANGE THIS TO A STRONG PASSWORD
