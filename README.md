@@ -8,11 +8,23 @@
 - ✅ Resource group deleted
 - ✅ No ongoing Azure charges
 
-**Command Used:** `terraform destroy -auto-approve`
+**Command Used:** `
+az login
+terraform init
+terraform validate
+terraform fmt
+terraform plan
+terraform apply
+terraform output
+terraform state list
+terraform destroy
 
-**Verification:** All resources confirmed destroyed via Azure CLI
+git init
+git add .
+git commit -m ""
+git remote add origin repo-url
+git push -u origin main
 
----
 
 # 1. Introduction
 
